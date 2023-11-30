@@ -1,0 +1,276 @@
+{
+  "contractName": "PVSecurityAgent",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_factory",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_admin",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newFactory",
+          "type": "address"
+        }
+      ],
+      "name": "FactoryChanged",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "agent",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "store",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "admin",
+          "type": "address"
+        }
+      ],
+      "name": "SecurityAgentCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "addr",
+          "type": "address"
+        },
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "signer",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "recoveryHash",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct PVSecurityStore.SecurityData",
+          "name": "_data",
+          "type": "tuple"
+        }
+      ],
+      "name": "initializeOrAssert",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable[]",
+          "name": "vaults",
+          "type": "address[]"
+        }
+      ],
+      "name": "markCompromised",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable[]",
+          "name": "vaults",
+          "type": "address[]"
+        }
+      ],
+      "name": "forceDisableMFA",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable[]",
+          "name": "vaults",
+          "type": "address[]"
+        }
+      ],
+      "name": "enableMFA",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "oldOwner",
+              "type": "address"
+            },
+            {
+              "internalType": "address payable[]",
+              "name": "vaults",
+              "type": "address[]"
+            },
+            {
+              "internalType": "bytes",
+              "name": "words",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "salt",
+              "type": "bytes"
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "signer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "recoveryHash",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct PVSecurityStore.SecurityData",
+              "name": "newOwnerSecurityData",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "oldOwnerNewRecoveryHash",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct PVSecurityAgent.RecoveryData",
+          "name": "recoveryData",
+          "type": "tuple"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "recoverVaults",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_factory",
+          "type": "address"
+        }
+      ],
+      "name": "updateFactory",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "oldOwner",
+              "type": "address"
+            },
+            {
+              "internalType": "address payable[]",
+              "name": "vaults",
+              "type": "address[]"
+            },
+            {
+              "internalType": "bytes",
+              "name": "words",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "salt",
+              "type": "bytes"
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            },
+            {
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "signer",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "recoveryHash",
+                  "type": "bytes32"
+                }
+              ],
+              "internalType": "struct PVSecurityStore.SecurityData",
+              "name": "newOwnerSecurityData",
+              "type": "tuple"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "oldOwnerNewRecoveryHash",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct PVSecurityAgent.RecoveryData",
+          "name": "recoveryData",
+          "type": "tuple"
+        }
+      ],
+      "name": "_getRecoveryActionHash",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ]
+}
